@@ -22,6 +22,8 @@ app.use((req, res, next) => {
   next();
 });
 
+//session
+ 
 //routes
 
 app.use("/api", router);
