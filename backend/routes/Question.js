@@ -1,16 +1,32 @@
 const express = require("express");
 const router = express.Router();
-
+// const cloudinary = require('cloudinary').v2
+require('dotenv').config()
 const questionDB = require("../models/Question");
+
+// cloudinary.config({
+//   cloud_name: process.env.CLOUD_NAME,
+//   api_key: process.env.API_KEY,
+//   api_secret: process.env.API_SECRET
+
+// })
+
+
 
 router.post("/", async (req, res) => {
   console.log(req.body);
 
   try {
+    // const file = req.files.imageUrl
+    // await cloudinary.uploader.upload(file.tempFilePath, (result) => {
+    //   console.log(result)
+    // })
+
     await questionDB
       .create({
         questionName: req.body.questionName,
         questionUrl: req.body.questionUrl,
+        imageUrl: req.result.url,
         user: req.body.user,
       })
       .then(() => {

@@ -5,8 +5,8 @@ require('dotenv').config()
 module.exports = (req, res, next) => {
     try {
         const bearerToken = req.headers.authorization.split(" ")[1]
-        console.log(bearerToken)
         const verify = jwt.verify(bearerToken, process.env.JWT_SECRET)
+        console.log(verify)
         next()
     } catch (error) {
 

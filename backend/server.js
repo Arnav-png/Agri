@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 const PORT = 80;
 const db = require("./db");
 const router = require("./routes");
+// const fileUpload = require('express-fileupload')
+
 
 //database connection
 
@@ -15,15 +17,20 @@ db.connect();
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 
+//fileupload
+// app.use(fileUpload({
+//   useTempFiles: true
+// }))
+
+
 //cors
 app.use((req, res, next) => {
   req.header("Access-Control-Allow-Origin", "*");
   req.header("Access-Control-Allow-Headers", "*");
   next();
 });
-
-//session
  
+
 //routes
 
 app.use("/api", router);

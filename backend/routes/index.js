@@ -5,6 +5,7 @@ const questionRouter = require("./Question");
 const answerRouter = require("./Answer");
 const registerRouter = require("./register");
 const loginRouter = require("./login");
+const logoutRouter = require("./logout");
 const checkAuth = require("../middleware/checkAuth")
 
 
@@ -17,4 +18,5 @@ router.use("/questions", checkAuth, questionRouter);
 router.use("/answers", checkAuth, answerRouter);
 router.use("/register", registerRouter);
 router.use("/login", loginRouter);
+router.use("/logout", logoutRouter);
 module.exports = router; 
