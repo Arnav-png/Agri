@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
+require('dotenv').config()
 
-const url =
-  "mongodb://localhost:27017/questions";
+const url = process.env.URI;
 
 module.exports.connect = () => {
   mongoose
@@ -12,5 +12,5 @@ module.exports.connect = () => {
     .then(() => {
       console.log("MongoDB connected successfully");
     })
-    .catch((error) => console.log("Error: ", error));
+    .catch((error) => console.log("Error: ", error.message));
 };

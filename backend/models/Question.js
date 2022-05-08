@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const QuestionSchema = new mongoose.Schema({
-  questionName: String,
+  questionName: { type: String, required: true },
   questionUrl: String,
   createdAt: {
     type: Date,
